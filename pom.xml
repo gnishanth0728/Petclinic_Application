@@ -519,29 +519,10 @@
 
     <profiles>
         <profile>
-            <id>H2</id>
+            <id>MySQL</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <db.script>h2</db.script>
-                <jpa.database>H2</jpa.database>
-                <jdbc.driverClassName>org.h2.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:h2:mem:petclinic</jdbc.url>
-                <jdbc.username>sa</jdbc.username>
-                <jdbc.password/>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                    <version>${h2database.version}</version>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>MySQL</id>
             <properties>
                 <db.script>mysql</db.script>
                 <jpa.database>MYSQL</jpa.database>
