@@ -553,7 +553,7 @@
             <dependencies>
                 <dependency>
                     <groupId>mysql</groupId>
-                    <artifactId>mysql-connector-java</artifactId>
+                    <artifactId>mysql-connector-j</artifactId>
                     <version>${mysql-driver.version}</version>
                     <scope>runtime</scope>
                 </dependency>
