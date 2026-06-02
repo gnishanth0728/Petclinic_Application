@@ -3,7 +3,7 @@
 .classpath
 .project
 bin/
-
+src/test
 # IntelliJ IDEA
 .idea
 *.iml

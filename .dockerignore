@@ -1,0 +1,6 @@
+.gitignore
+.gitattributes
+*.txt
+*.md
+.devcontainers
+Dockerfile
