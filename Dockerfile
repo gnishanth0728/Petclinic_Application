@@ -12,4 +12,4 @@ RUN mvn clean package -DskipTests
 
 FROM jetty:11-jdk17
 
-COPY --from=builder target/petclinic.war /var/lib/jetty/webapps/ROOT.war
+COPY --from=builder /java-app/target/petclinic.war /var/lib/jetty/webapps/ROOT.war
