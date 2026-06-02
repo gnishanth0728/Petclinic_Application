@@ -9,8 +9,8 @@ services:
       MYSQL_USER: petclinic
       MYSQL_PASSWORD: petclinic
       MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "3306:3306"
+    expose:
+     - "3306"
     volumes:
       - mysql-data:/var/lib/mysql
     healthcheck:
@@ -19,6 +19,8 @@ services:
       timeout: 5s
       retries: 10
       start_period: 30s
+    networks:
+      - petclinic-network
 
   petclinic:
     build:
@@ -35,6 +37,12 @@ services:
       JDBC_USERNAME: petclinic
       JDBC_PASSWORD: petclinic
     restart: unless-stopped
+    networks:
+      - petclinic-network
 
 volumes:
   mysql-data:
+
+networks:
+  petclinic-network:
+    driver: bridge
