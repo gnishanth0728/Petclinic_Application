@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: petclinic-mysql
+    environment:
+      MYSQL_DATABASE: petclinic
+      MYSQL_USER: petclinic
+      MYSQL_PASSWORD: petclinic
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  petclinic:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: petclinic
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      JDBC_URL: jdbc:mysql://mysql:3306/petclinic?useUnicode=true
+      JDBC_USERNAME: petclinic
+      JDBC_PASSWORD: petclinic
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
