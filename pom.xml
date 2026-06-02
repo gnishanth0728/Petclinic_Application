@@ -525,7 +525,7 @@
             </activation>
             <properties>
                 <db.script>mysql</db.script>
-                <jpa.database>MYSQL</jpa.database>
+                <jpa.database>petclinic</jpa.database>
                 <jdbc.driverClassName>com.mysql.cj.jdbc.Driver</jdbc.driverClassName>
                 <jdbc.url>${env.JDBC_URL}</jdbc.url>
                 <jdbc.username>${env.JDBC_USERNAME}</jdbc.username>
